@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 import './BookList.css';
 
 const BookList = () => {
-    const books = useSelector((state) => state.books);
+  const books = useSelector((state) => state.books);
   return (
     <div className='app-block book-list'>
       <h2>Book List</h2>
@@ -11,9 +11,9 @@ const BookList = () => {
       ) : (
         <ul>
           {books.map((book, i) => (
-            <li key={i}>
+            <li key={book.id}>
               <div className='book-info'>
-                      {++i}. {book.title} by {' '}<strong>{book.autor}</strong>
+                {++i}. {book.title} by <strong>{book.autor}</strong>
               </div>
             </li>
           ))}
