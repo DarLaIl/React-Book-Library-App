@@ -13,7 +13,12 @@ const BookForm = () => {
   const handleAddRandomBook = () => {
     const randomIndex = Math.floor(Math.random() * booksData.length);
     const randomBook = booksData[randomIndex];
-    dispatch(addBook(randomBook));
+
+    const randomBookWithFavorite = {
+      ...randomBook,
+      isFavorite: false,
+    };
+    dispatch(addBook(randomBookWithFavorite));
   };
 
   const handleSubmit = (e) => {
@@ -23,6 +28,7 @@ const BookForm = () => {
         title,
         author,
         id: uuidv4(),
+        isFavorite: false,
       };
       dispatch(addBook(book));
       setTitle('');
